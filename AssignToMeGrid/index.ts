@@ -6,8 +6,6 @@ type DataSet = ComponentFramework.PropertyTypes.DataSet;
 export class AssignedToMeGrid implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
 	private _container: HTMLDivElement;
-	private _select: HTMLDivElement;
-	private _selectedTags: string[] = [];
 
 	/**
 	 * Empty constructor.
@@ -25,12 +23,6 @@ export class AssignedToMeGrid implements ComponentFramework.StandardControl<IInp
 	 * @param container If a control is marked control-type='standard', it will receive an empty div element within which it can render its content.
 	 */
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
-		// Add control initialization code
-		this._select = document.createElement("div");
-		this._select.id = "select";
-		this._select.className = "selectable-tags";
-		container.appendChild(this._select);
-
 		// Add control initialization code
 		this._container = document.createElement("div");
 		this._container.className = "table-like";
@@ -54,7 +46,6 @@ export class AssignedToMeGrid implements ComponentFramework.StandardControl<IInp
 
 			this._container.innerHTML = "";
 			var recordSet = context.parameters.recordSet;
-			let allTags: string[] = [];
 
 			var headers = <HTMLDivElement>document.createElement("div");
 			headers.className = "header";
