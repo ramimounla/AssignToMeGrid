@@ -3,7 +3,7 @@ import DataSetInterfaces = ComponentFramework.PropertyHelper.DataSetApi;
 type DataSet = ComponentFramework.PropertyTypes.DataSet;
 // import * as $ from 'jquery';
 
-export class AssignedToMeGrid implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+export class AssignToMeGrid implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
 	private _container: HTMLDivElement;
 
@@ -26,7 +26,6 @@ export class AssignedToMeGrid implements ComponentFramework.StandardControl<IInp
 		// Add control initialization code
 		this._container = document.createElement("div");
 		this._container.className = "table-like";
-
 		container.appendChild(this._container);
 	}
 
@@ -56,7 +55,6 @@ export class AssignedToMeGrid implements ComponentFramework.StandardControl<IInp
 				headers.appendChild(span);
 			});
 			this._container.appendChild(headers);
-
 
 			recordSet.sortedRecordIds.forEach(recordId => {
 				var recordDiv = <HTMLDivElement>document.createElement("div");
