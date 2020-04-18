@@ -60,13 +60,19 @@ export class AssignToMeGrid implements ComponentFramework.StandardControl<IInput
 				var recordDiv = <HTMLDivElement>document.createElement("div");
 				recordDiv.className = "row";
 				context.parameters.recordSet.columns.forEach(column => {
-
 					var span = <HTMLSpanElement>document.createElement("span");
 					span.className = "element " + this.sanitizeNameToCss(column.displayName);
 					span.innerText = <string>recordSet.records[recordId].getValue(column.name);
 					recordDiv.appendChild(span);
+				});	
 
-				});
+				var buttonSpan = <HTMLSpanElement>document.createElement("span");
+				buttonSpan.className = "assign";
+				var assignButton = <HTMLButtonElement>document.createElement("button");
+				assignButton.innerText = "Assing To Me";
+				buttonSpan.appendChild(assignButton)
+				recordDiv.appendChild(assignButton);
+
 				this._container.appendChild(recordDiv);
 			});
 
