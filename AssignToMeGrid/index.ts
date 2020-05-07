@@ -71,6 +71,11 @@ export class AssignToMeGrid implements ComponentFramework.StandardControl<IInput
 						hyperLink.innerText = recordSet.records[recordId].getValue(column.name).name; 
 						span.appendChild(hyperLink);
 					}
+					//todo check the data type
+					else if (column.displayName.toLowerCase().includes("date") && recordSet.records[recordId].getValue(column.name) != null) {
+						span.innerText = recordSet.records[recordId].getFormattedValue(column.name);
+						// span.innerText = moment(<string>recordSet.records[recordId].getValue(column.name), "YYYY-MM-DDTHH:mm:ss.SSSZ").format("YYYY-MM-DD");
+					}
 					//Simple Text
 					else{
 						span.innerText = <string>recordSet.records[recordId].getValue(column.name);
